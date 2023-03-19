@@ -14,13 +14,22 @@
 #開啟txt文字檔
 f = open('hw2_data.txt','r')
 #建立空字典
-char_count = {}
+word_count = {}
 
 for line in f:
     #移除換行符號
     line = line.strip()
-    if line in char_count:
-        char_count[line] += 1
+    #若單字已出現在字典中，則對應value加一
+    if line in word_count:
+        word_count[line] += 1
+    #若字母不存在字典中，則以該單字做為新的key，其對應value加一
     else:
-        char_count[line] = 1
-    
+        word_count[line] = 1
+print(word_count)
+
+#計算有幾種不重複種類的單字
+print('There are {} unique words in the file'.format(len(word_count)))
+
+#請使用者輸入想要知道出現次數的單字
+word = input("Which word do you want to know how many times it appears?")
+print('{} appears {} times.'.format(word, word_count[word]))
