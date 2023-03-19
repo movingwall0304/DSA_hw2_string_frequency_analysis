@@ -10,3 +10,17 @@
 #3.變數與function名稱是否清楚可辨識
 #4.是否使用github的commit與push上傳程式碼
 
+
+#開啟txt文字檔
+f = open('hw2_data.txt','r')
+#建立空字典
+char_count = {}
+
+for line in f:
+    #移除換行符號
+    line = line.strip()
+    if line in char_count:
+        char_count[line] += 1
+    else:
+        char_count[line] = 1
+    
